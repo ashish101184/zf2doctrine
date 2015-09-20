@@ -1,0 +1,27 @@
+<?php
+$title = 'Add Parents';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<?php
+	$form->setAttribute('action', $this->url('parents',array('action' => 'add')));
+	$form->setAttribute('class', 'form-horizontal');
+	
+	echo $this->Form($this->form);
+?>
+
+<button onclick="return add_category()">Add a new category</button>
+
+<script>
+    function add_category() {
+        var currentCount = $('form > fieldset > fieldset > fieldset').length;
+        var template = $('form > fieldset > fieldset > span').data('template');
+        template = template.replace(/__index__/g, currentCount);
+
+        $('form > fieldset').append(template);
+
+        return false;
+    }
+</script>
+

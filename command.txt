@@ -1,0 +1,11 @@
+call ./vendor/bin/doctrine-module orm:convert-mapping --namespace="Blog\Entity\" --force  --from-database annotation ./module/AshuBlog/src/
+
+call ./vendor/bin/doctrine-module orm:generate:entities ./module/Blog/src/ --generate-annotations=true
+call ./vendor/bin/doctrine-module orm:clear-cache:query
+call ./vendor/bin/doctrine-module orm:clear-cache:metadata
+call ./vendor/bin/doctrine-module orm:convert-mapping --namespace="Blog\\Entity\\" --force  --from-database annotation ./module/Blog/src/
+
+
+
+
+./vendor/doctrine/doctrine-module/bin/doctrine-module orm:convert-mapping --namespace="Album\\Entity\\" --force  --from-database annotation ./module/Album/src/
