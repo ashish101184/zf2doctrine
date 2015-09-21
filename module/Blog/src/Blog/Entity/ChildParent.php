@@ -31,7 +31,7 @@ class ChildParent
     protected  $id;
 
     /**
-      * @ORM\OneToMany(targetEntity="Blog\Entity\Children", mappedBy="childparent",cascade={"persist"})
+      * @ORM\OneToMany(targetEntity="Blog\Entity\Children", mappedBy="childparent",cascade={"persist","remove"})
       */
      protected $children;
 

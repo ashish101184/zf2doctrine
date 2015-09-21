@@ -40,7 +40,7 @@ class Children
     private $childparent;
 
     /**
-      * @ORM\OneToMany(targetEntity="Blog\Entity\Hobby", mappedBy="children",cascade={"persist"})
+      * @ORM\OneToMany(targetEntity="Blog\Entity\Hobby", mappedBy="children",cascade={"persist","remove"})
       */
      protected $hobby;
 

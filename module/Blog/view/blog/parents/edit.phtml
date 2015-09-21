@@ -11,15 +11,25 @@ $this->headTitle($title);
 	echo $this->Form($form);
 ?>
 
-<button onclick="return add_category()">Add a new category</button>
+<button onclick="return add_child()">Add a new child</button>
+<button onclick="return add_hobby()">Add a new hobby</button>
 
 <script>
-    function add_category() {
+    function add_child() {
         var currentCount = $('form > fieldset > fieldset > fieldset').length;
         var template = $('form > fieldset > fieldset > span').data('template');
         template = template.replace(/__index__/g, currentCount);
 
         $('form > fieldset > fieldset').append(template);
+
+        return false;
+    }
+    function add_hobby() {
+        var currentCount = $('form > fieldset > fieldset > fieldset > fieldset > fieldset').length;
+        var template = $('form > fieldset > fieldset > fieldset > fieldset > span').data('template');
+        template = template.replace(/__index__/g, currentCount);
+
+        $('form > fieldset > fieldset > fieldset > fieldset').append(template);
 
         return false;
     }
