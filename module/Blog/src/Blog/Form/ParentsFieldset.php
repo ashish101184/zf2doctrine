@@ -29,7 +29,7 @@ class ParentsFieldset extends Fieldset implements InputFilterProviderInterface
          'type' => 'text',
          'name' => 'name',
          'options' => array(
-           'label' => 'Name'
+           'label' => 'Parent Name'
          )
       ));
       
@@ -37,13 +37,12 @@ class ParentsFieldset extends Fieldset implements InputFilterProviderInterface
              'type' => 'Zend\Form\Element\Collection',
              'name' => 'children',
              'options' => array(
-                 'label' => 'Please enter children',
                  'should_create_template' => true,
                  'object_manager' => $serviceManager,
                  'allow_add' => true,
-                 'template_placeholder' => '__index__',
                  'target_element' => new ChildrenFieldset($serviceManager) ,
              ),
+             'attribute' => array('class' => 'childrenSet')
          ));
 
    }

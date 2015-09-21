@@ -10,7 +10,7 @@
  * @author ASHISH
  */
 namespace Blog\Form;
-
+ 
 use Blog\Entity\Children;
 
 use Doctrine\ORM\EntityManager;
@@ -20,7 +20,7 @@ use Zend\Form\Fieldset;
  
  use Zend\ServiceManager\ServiceManager;
 
-class ChildrenFieldset extends Fieldset implements InputFilterProviderInterface {
+class ChildFieldset extends Fieldset implements InputFilterProviderInterface {
     public function __construct(ServiceManager $serviceManager)
    {
         parent::__construct('children');
@@ -38,19 +38,6 @@ class ChildrenFieldset extends Fieldset implements InputFilterProviderInterface 
            'label' => 'Child Name'
          )
       ));
-
-      $this->add(array(
-             'type' => 'Zend\Form\Element\Collection',
-             'name' => 'hobby',
-             'options' => array(
-                 'label' => 'Please enter children hobbies',
-                 'should_create_template' => true,
-                 'object_manager' => $serviceManager,
-                 'allow_add' => true,
-                 'target_element' => new HobbyFieldset($serviceManager) ,
-             ),
-             'attribute' => array('class' => 'hobbySet')
-         ));
    }
 
 

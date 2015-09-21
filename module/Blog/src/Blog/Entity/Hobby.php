@@ -79,7 +79,7 @@ class Hobby
      *
      * @return childparent
      */
-    public function setChildren(Children $children)
+    public function setChildren(Children $children = null)
     {
         return $this->children = $children;
     }
